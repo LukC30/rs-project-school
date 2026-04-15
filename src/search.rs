@@ -23,7 +23,7 @@ impl Catalogo{
     pub fn add_produto(&mut self, prod: Produto){
 
         let id = prod.id;
-        let categoria = prod.categoria;
+        let categoria = prod.categoria.clone();
         let marca = prod.marca.clone();
 
         self.index_id.insert(id, prod);
@@ -43,14 +43,19 @@ impl Catalogo{
         self.index_id.get(&id)
     }
 
-    pub fn buscar_prod_categoria(&self, categoria: &str) -> Option<&Vec<u32>>{
-        self.index_categoria.get(categoria)
+    pub fn buscar_prod_categoria(&self, categoria: &str) -> Vec<&Produto>{
+        if let Some(arr) = self.index_categoria.get(categoria){
+            arr.iter().filter_map(|id| self.index_id.get(id)).collect()
+        } else {
+            Vec::new()
+        }
     }
 
-    pub fn buscar_prod_marca(&self, marca: &str) -> Option<Vec<&Produto>>{
-        let mut arr  = self.index_marca.get(marca);
-        if (arr.is_some()){
-
+    pub fn buscar_prod_marca(&self, marca: &str) -> Vec<&Produto>{
+        if let Some(arr) = self.index_marca.get(marca){
+            arr.iter().filter_map(|id| self.index_id.get(id)).collect()
+        } else {
+            Vec::new()
         }
     }
 
