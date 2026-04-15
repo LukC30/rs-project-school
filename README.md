@@ -1,8 +1,4 @@
-Excelente. Manter a sua identidade no texto é fundamental para que a documentação reflita a sua autoria técnica. Como seu professor, vou guiar essa reestruturação. Vamos lapidar o seu rascunho original, removendo as ressalvas e expandindo os seus próprios exemplos visuais para demonstrar domínio absoluto da arquitetura que você construiu.
-
-Aqui está a versão refinada do seu texto, pronta para o README.md:
-
-rs-project-school
+# rs-project-school
 De forma breve, apresento a arquitetura deste projeto. O desenvolvimento foi pautado na construção de estruturas de dados robustas em Rust e desenhado em conformidade com as conveniências algorítmicas da Notação Big-O. A seguir, detalho como a performance e o gerenciamento de memória do sistema são medidos.
 
 Vamos considerar o mecanismo principal, localizado no arquivo src/search.rs. Nele, possuímos uma struct chamada Catalogo, que opera com 3 índices projetados para evitar a duplicação de dados: um índice por ID (geral), um por categoria e um por marca.
